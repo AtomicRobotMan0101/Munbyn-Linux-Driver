@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -euo pipefail
+
+if [[ $EUID -ne 0 ]]; then
+    echo "Run as root: sudo ./uninstall"
+    exit 1
+fi
+
+rm -f /usr/lib/cups/filter/rastertolabeltspl
+rm -rf /usr/share/ppd/munbyn
+
+systemctl restart cups
+
+echo "Munbyn driver removed"

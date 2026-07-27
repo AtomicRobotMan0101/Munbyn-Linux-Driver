@@ -1,0 +1,35 @@
+#!/bin/bash
+
+set -euo pipefail
+
+DRIVER="Munbyn ITPP941P"
+FILTER="rastertolabeltspl"
+PPD="Munbyn-ITPP941P.ppd"
+
+FILTER_DIR="/usr/lib/cups/filter"
+PPD_DIR="/usr/share/ppd/munbyn"
+
+if [[ $EUID -ne 0 ]]; then
+    echo "Run as root: sudo ./install"
+    exit 1
+fi
+
+echo "Installing $DRIVER CUPS driver"
+
+install -Dm755 \
+    "$FILTER" \
+    "$FILTER_DIR/$FILTER"
+
+install -Dm644 \
+    "ppds/$PPD" \
+    "$PPD_DIR/$PPD"
+
+systemctl restart cups
+
+echo
+echo "Installed:"
+echo " Filter: $FILTER_DIR/$FILTER"
+echo " PPD:    $PPD_DIR/$PPD"
+echo
+echo "Add printer via CUPS:"
+echo " http://localhost:631"
