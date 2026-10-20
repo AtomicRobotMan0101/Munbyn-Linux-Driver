@@ -37,7 +37,10 @@ The supplied filter binary is x86_64 Linux.
 Thanks goes to everyone before me that gave hints as to how this internet relic works.
 
 https://forums.freebsd.org/threads/print-beeprt-label-printer-cups-driver.80299/
+
 https://www.beeprt.com/download/drivers/2.html
+
 https://forum.manjaro.org/t/munbyn-itpp941-stopped-no-available-printer/114284
+
 https://drive.google.com/drive/folders/1RovQ-Cr1pb36OcfGu5O9603DJ-jZFgll (avoid this nightmare file. Its a MESS).
 
